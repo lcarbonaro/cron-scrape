@@ -5,7 +5,8 @@ async function main() {
   const page = await browser.newPage();
   await page.goto('https://ca.finance.yahoo.com/quote/MG.TO/');
  
-  const [priceEl] =  await page.$x('//*[@id="quote-header-info"]/div[3]/div/div/span[1]');
+  const [priceEl] =  await page.$x('//*[@id="quote-header-info"]/div[3]/div[1]/div/fin-streamer[1]/span');
+
   const price = await priceEl.getProperty('textContent');
   const priceTxt = await price.jsonValue();
 
